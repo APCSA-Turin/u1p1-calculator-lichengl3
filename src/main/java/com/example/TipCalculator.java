@@ -1,27 +1,29 @@
 package com.example;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class TipCalculator {
     //WRITE YOUR PROGRAM IN calculateTip
     public static String calculateTip(int people, int percent, double cost) { //You must use these  variable in your calculations
-        //DO NOT DELETE ANY OF THE CODE BELOW      
-
+    //DO NOT DELETE ANY OF THE CODE BELOW      
+        DecimalFormat df = new DecimalFormat("#0.00"); //based off answers from https://stackoverflow.com/questions/2808535/round-a-double-to-2-decimal-places
         String result = "-------------------------------\n" +
-                       "Total bill before tip: $" + "" + "\n" +
-                       "Total percentage: " + "" + "%\n" +
-                       "Total tip: $" + "" + "\n" +
-                       "Total Bill with tip: $" + "" + "\n" +
-                       "Per person cost before tip: $" + "" + "\n" +
-                       "Tip per person: $" + "" + "\n" +
-                       "Total cost per person: $" + "" + "\n" +
+                       "Total bill before tip: $" + df.format(cost) + "\n" +
+                       "Total percentage: " + percent + "%\n" +
+                       "Total tip: $" + df.format(cost * (percent / 100.00)) + "\n" +
+                       "Total Bill with tip: $" + df.format(cost + percent / 100.00 * cost) + "\n" +
+                       "Per person cost before tip: $" + df.format(cost / people) + "\n" +
+                       "Tip per person: $" + df.format(cost * (percent / 100.00) / people) + "\n" +
+                       "Total cost per person: $" + df.format((cost + (percent /100.00) * cost) / people) + "\n" +
                        "-------------------------------\n";
 
         return result;
+
     }
 
-    public static String extraCredit(int people, int percent, double cost) {
+     public static String extraCredit(int people, int percent, double cost) {
         String result = "Extra credit not implemented";
-        boolean condition = true;
+        boolean condition = false;
     
         //  COPY AND PASTE YOUR PROGRAM FROM calculateTip() HERE 
         
@@ -40,7 +42,7 @@ public class TipCalculator {
 
         return result;
     }
-    
+      
     
      //TEST YOUR PROGRAM IN main
      public static void main(String[] args) {
@@ -48,7 +50,7 @@ public class TipCalculator {
         int people=10; 
         int percent=8;
         double cost=10.5;              
-        //System.out.println(calculateTip(people,percent,cost));
+        System.out.println(calculateTip(people,percent,cost));
         System.out.println(extraCredit(people, percent, cost));
     }
 }
