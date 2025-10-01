@@ -3,7 +3,7 @@ import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class TipCalculator {
+public class TipCalculatorBackup {
     //WRITE YOUR PROGRAM IN calculateTip
     public static String calculateTip(int people, int percent, double cost) { //You must use these  variable in your calculations
     //DO NOT DELETE ANY OF THE CODE BELOW      
@@ -23,8 +23,9 @@ public class TipCalculator {
     }
 
      public static String extraCredit(int people, int percent, double cost) {
+        String result = "Extra credit not implemented";
         //  COPY AND PASTE YOUR PROGRAM FROM calculateTip() HERE 
-
+        
         // the while loop condition is checked,
         // and if TRUE, runs the code inside.
         // when the code inside is done running, the condition is rechecked,
@@ -39,7 +40,6 @@ public class TipCalculator {
                 menuItem = scan.nextLine();
             } catch (InputMismatchException e) {
                 menuItem = Integer.toString(scan.nextInt());
-                scan.nextLine();
             }
         }
         scan.close();
@@ -57,4 +57,3 @@ public class TipCalculator {
         System.out.println(extraCredit(people, percent, cost));
     }
 }
-        
